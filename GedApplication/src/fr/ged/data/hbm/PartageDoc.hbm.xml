@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.PartageDoc" table="partage_doc" catalog="ged">
+        <composite-id name="id" class="fr.ged.data.PartageDocId">
+            <key-many-to-one name="document" class="fr.ged.data.Document" lazy="false">
+                <column name="ID_DOC" />
+            </key-many-to-one>
+            <key-many-to-one name="role" class="fr.ged.data.Role" lazy="false">
+                <column name="ID_ROLE" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="datePartage" type="java.util.Date">
+            <column name="DATE_PARTAGE" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#pages#secure#acceuil#Acceuil.jsp"
+    NAME="output" PATH="/pages/secure/acceuil/Acceuil.jsp"
+    TARGET="rules:#pages#secure#acceuil#Acceuil.jsp" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="ajoutEmploye::#pages#secure#employe#Employes.jsp" NAME="output1"
+    PATH="/pages/secure/employe/Employes.jsp"
+    TARGET="rules:#pages#secure#employe#Employes.jsp"
+    TITLE="ajoutEmploye" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ajoutRole::#pages#secure#role#Roles.jsp"
+    NAME="output2" PATH="/pages/secure/role/Roles.jsp"
+    TARGET="rules:#pages#secure#role#Roles.jsp" TITLE="ajoutRole" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="ajoutTypeDocument::#pages#secure#typeDocument#TypeDocument.jsp"
+    NAME="output3" PATH="/pages/secure/typeDocument/TypeDocument.jsp"
+    TARGET="rules:#pages#secure#typeDocument#TypeDocument.jsp"
+    TITLE="ajoutTypeDocument" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="ajoutProcessus::#pages#secure#processes#Processus.jsp"
+    NAME="output4" PATH="/pages/secure/processes/Processus.jsp"
+    TARGET="rules:#pages#secure#processes#Processus.jsp"
+    TITLE="ajoutProcessus" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="ajoutDocument::#pages#secure#document#Document.jsp"
+    NAME="output5" PATH="/pages/secure/document/Document.jsp"
+    TARGET="rules:#pages#secure#document#Document.jsp"
+    TITLE="ajoutDocument" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="partageDoc::#pages#secure#partageDoc#PartageDoc.jsp"
+    NAME="output6" PATH="/pages/secure/partageDoc/PartageDoc.jsp"
+    TARGET="rules:#pages#secure#partageDoc#PartageDoc.jsp"
+    TITLE="partageDoc" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="valideEtape::#pages#secure#instanceProcess#InstanceProcess.jsp"
+    NAME="output7"
+    PATH="/pages/secure/instanceProcess/InstanceProcess.jsp"
+    TARGET="rules:#pages#secure#instanceProcess#InstanceProcess.jsp"
+    TITLE="valideEtape" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="suiviDoc::#pages#secure#suiviDocument#SuiviDocument.jsp"
+    NAME="output8" PATH="/pages/secure/suiviDocument/SuiviDocument.jsp"
+    TARGET="rules:#pages#secure#suiviDocument#SuiviDocument.jsp"
+    TITLE="suiviDoc" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="LoginFailed:#{loginGed.log}:#pages#login#Login.jsp"
+    NAME="output" PATH="/pages/login/Login.jsp"
+    TARGET="rules:#pages#login#Login.jsp"
+    TITLE="#{loginGed.log}:LoginFailed" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="LoginSuccess:#{loginGed.log}:#pages#secure#acceuil#Acceuil.jsp"
+    NAME="output1" PATH="/pages/secure/acceuil/Acceuil.jsp"
+    TARGET="rules:#pages#secure#acceuil#Acceuil.jsp"
+    TITLE="#{loginGed.log}:LoginSuccess" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="LogOutSuccess:#{loginGed.logOut}:#pages#login#Login.jsp"
+    NAME="output2" PATH="/pages/login/Login.jsp"
+    TARGET="rules:#pages#login#Login.jsp"
+    TITLE="#{loginGed.logOut}:LogOutSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddTypeDocumentSuccess:#{typeDocuments.addTypeDocument}:#pages#secure#typeDocument#TypeDocument.jsp"
+    NAME="output" PATH="/pages/secure/typeDocument/TypeDocument.jsp"
+    TARGET="rules:#pages#secure#typeDocument#TypeDocument.jsp"
+    TITLE="#{typeDocuments.addTypeDocument}:AddTypeDocumentSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddRoleSuccess:#{roles.addRole}:#pages#secure#role#Roles.jsp"
+    NAME="output" PATH="/pages/secure/role/Roles.jsp"
+    TARGET="rules:#pages#secure#role#Roles.jsp"
+    TITLE="#{roles.addRole}:AddRoleSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#secure#acceuil#Acceuil.jsp"
+  PATH="/pages/secure/acceuil/Acceuil.jsp" SHAPE="272,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#login#Login.jsp"
+  PATH="/pages/login/Login.jsp" SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#employe#Employes.jsp"
+  PATH="/pages/secure/employe/Employes.jsp" SHAPE="272,385,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#role#Roles.jsp"
+  PATH="/pages/secure/role/Roles.jsp" SHAPE="272,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#typeDocument#TypeDocument.jsp"
+  PATH="/pages/secure/typeDocument/TypeDocument.jsp" SHAPE="288,417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddDocumentSuccess:#{documents.addDocument}:#pages#secure#document#Document.jsp"
+    NAME="output" PATH="/pages/secure/document/Document.jsp"
+    TARGET="rules:#pages#secure#document#Document.jsp"
+    TITLE="#{documents.addDocument}:AddDocumentSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddProcessusSuccess:#{processes.addProcessus}:#pages#secure#processes#Processus.jsp"
+    NAME="output" PATH="/pages/secure/processes/Processus.jsp"
+    TARGET="rules:#pages#secure#processes#Processus.jsp"
+    TITLE="#{processes.addProcessus}:AddProcessusSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddEmployeSuccess:#{employes.addEmploye}:#pages#secure#employe#Employes.jsp"
+    NAME="output" PATH="/pages/secure/employe/Employes.jsp"
+    TARGET="rules:#pages#secure#employe#Employes.jsp"
+    TITLE="#{employes.addEmploye}:AddEmployeSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::6" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddActiviteSuccess:#{activites.addActivite}:#pages#secure#activite#Activite.jsp"
+    NAME="output" PATH="/pages/secure/activite/Activite.jsp"
+    TARGET="rules:#pages#secure#activite#Activite.jsp"
+    TITLE="#{activites.addActivite}:AddActiviteSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::7" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddInstanceProcessSuccess:#{instanceProcesses.addInstanceProcess}:#pages#secure#instanceProcess#InstanceProcess.jsp"
+    NAME="output"
+    PATH="/pages/secure/instanceProcess/InstanceProcess.jsp"
+    TARGET="rules:#pages#secure#instanceProcess#InstanceProcess.jsp"
+    TITLE="#{instanceProcesses.addInstanceProcess}:AddInstanceProcessSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::8" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddHistoriqueModifiSuccess:#{historiqueModifi.addHistoriqueModifi}:#pages#secure#historiqueModif#HistoriqueModif.jsp"
+    NAME="output"
+    PATH="/pages/secure/historiqueModif/HistoriqueModif.jsp"
+    TARGET="rules:#pages#secure#historiqueModif#HistoriqueModif.jsp"
+    TITLE="#{historiqueModifi.addHistoriqueModifi}:AddHistoriqueModifiSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::9" SHAPE="32,1249,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="AddPartageDocSuccess:#{partageDoc.addPartageDoc}:#pages#secure#partageDoc#PartageDoc.jsp"
+    NAME="output" PATH="/pages/secure/partageDoc/PartageDoc.jsp"
+    TARGET="rules:#pages#secure#partageDoc#PartageDoc.jsp"
+    TITLE="#{partageDoc.addPartageDoc}:AddPartageDocSuccess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#secure#processes#Processus.jsp"
+  PATH="/pages/secure/processes/Processus.jsp" SHAPE="304,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#instanceProcess#InstanceProcess.jsp"
+  PATH="/pages/secure/instanceProcess/InstanceProcess.jsp"
+  SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#historiqueModif#HistoriqueModif.jsp"
+  PATH="/pages/secure/historiqueModif/HistoriqueModif.jsp"
+  SHAPE="240,1153,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#activite#Activite.jsp"
+  PATH="/pages/secure/activite/Activite.jsp" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#partageDoc#PartageDoc.jsp"
+  PATH="/pages/secure/partageDoc/PartageDoc.jsp" SHAPE="240,1265,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#document#Document.jsp"
+  PATH="/pages/secure/document/Document.jsp" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#suiviDocument#SuiviDocument.jsp"
+  PATH="/pages/secure/suiviDocument/SuiviDocument.jsp"
+  SHAPE="304,577,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

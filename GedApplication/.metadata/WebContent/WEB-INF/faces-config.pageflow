@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13678418171520" configfile="/GedApplication/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1714" id="pf13678419781451" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13678419781452 pf13678419781453 pf13678419781454 pf13679180101920 pf13679180101921 pf13679180101922 pf13679180101923 pf13679180101924 pf13703585929861 pf13703585929862 pf13703585929863 pf13703585929864 pf13703585929865 pf13703585929866 pf13703585929867 pf13703585929868 pf13703585929869 pf137035859298610 pf137035859298611" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/login/Login" x="338" y="178" id="pf13678419781455" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" inlinks="pf13678419781452 pf13678419781454" path="/pages/login/Login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/acceuil/Acceuil" x="338" y="562" id="pf13678419781456" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf13678419781453 pf13679180101922" path="/pages/secure/acceuil/Acceuil.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/employe/Employes" x="338" y="946" id="pf13679180102085" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf13679180101920 pf13679180101924" path="/pages/secure/employe/Employes.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/role/Roles" x="338" y="1330" id="pf13679180102086" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf13679180101921 pf13679180101923" path="/pages/secure/role/Roles.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/typeDocument/TypeDocument" x="338" y="1714" id="pf137035859298612" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf13703585929861 pf13703585929865" path="/pages/secure/typeDocument/TypeDocument.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/processes/Processus" x="338" y="2098" id="pf137035859298613" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf13703585929862 pf13703585929867" path="/pages/secure/processes/Processus.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/document/Document" x="338" y="2482" id="pf137035859298614" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf13703585929863 pf13703585929866" path="/pages/secure/document/Document.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/partageDoc/PartageDoc" x="338" y="2866" id="pf13703585929540" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" inlinks="pf13703585929864 pf137035859298611" path="/pages/secure/partageDoc/PartageDoc.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/activite/Activite" x="338" y="3250" id="pf137035883252215" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf13703585929868" path="/pages/secure/activite/Activite.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/instanceProcess/InstanceProcess" x="338" y="3634" id="pf137035883252216" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf13703585929869" path="/pages/secure/instanceProcess/InstanceProcess.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/secure/historiqueModif/HistoriqueModif" x="338" y="4018" id="pf137035883253817" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf137035859298610" path="/pages/secure/historiqueModif/HistoriqueModif.jsp"/>
+  <links id="pf13678419781452" target="pf13678419781455" source="pf13678419781451" outcome="LoginFailed" fromaction="#{loginGed.log}"/>
+  <links id="pf13678419781453" target="pf13678419781456" source="pf13678419781451" outcome="home"/>
+  <links id="pf13678419781454" target="pf13678419781455" source="pf13678419781451" outcome="LogOutSuccess" fromaction="#{loginGed.logOut}"/>
+  <links id="pf13679180101920" target="pf13679180102085" source="pf13678419781451" outcome="ajoutEmploye"/>
+  <links id="pf13679180101921" target="pf13679180102086" source="pf13678419781451" outcome="ajoutRole"/>
+  <links id="pf13679180101922" target="pf13678419781456" source="pf13678419781451" outcome="LoginSuccess" fromaction="#{loginGed.log}"/>
+  <links id="pf13679180101923" target="pf13679180102086" source="pf13678419781451" outcome="AddRoleSuccess" fromaction="#{roles.addRole}"/>
+  <links id="pf13679180101924" target="pf13679180102085" source="pf13678419781451" outcome="AddEmployeSuccess" fromaction="#{employes.addEmploye}"/>
+  <links id="pf13703585929861" target="pf137035859298612" source="pf13678419781451" outcome="ajoutTypeDocument"/>
+  <links id="pf13703585929862" target="pf137035859298613" source="pf13678419781451" outcome="ajoutProcessus"/>
+  <links id="pf13703585929863" target="pf137035859298614" source="pf13678419781451" outcome="ajoutDocument"/>
+  <links id="pf13703585929864" target="pf13703585929540" source="pf13678419781451" outcome="partageDoc"/>
+  <links id="pf13703585929865" target="pf137035859298612" source="pf13678419781451" outcome="AddTypeDocumentSuccess" fromaction="#{typeDocuments.addTypeDocument}"/>
+  <links id="pf13703585929866" target="pf137035859298614" source="pf13678419781451" outcome="AddDocumentSuccess" fromaction="#{documents.addDocument}"/>
+  <links id="pf13703585929867" target="pf137035859298613" source="pf13678419781451" outcome="AddProcessusSuccess" fromaction="#{processes.addProcessus}"/>
+  <links id="pf13703585929868" target="pf137035883252215" source="pf13678419781451" outcome="AddActiviteSuccess" fromaction="#{activites.addActivite}"/>
+  <links id="pf13703585929869" target="pf137035883252216" source="pf13678419781451" outcome="AddInstanceProcessSuccess" fromaction="#{instanceProcesses.addInstanceProcess}"/>
+  <links id="pf137035859298610" target="pf137035883253817" source="pf13678419781451" outcome="AddHistoriqueModifiSuccess" fromaction="#{historiqueModifi.addHistoriqueModifi}"/>
+  <links id="pf137035859298611" target="pf13703585929540" source="pf13678419781451" outcome="AddPartageDocSuccess" fromaction="#{partageDoc.addPartageDoc}"/>
+</pageflow:Pageflow>

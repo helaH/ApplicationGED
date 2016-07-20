@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+
+	<bean id="GedConnection"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+
+
+
+	<bean id="EmployeDAO" class="fr.ged.data.dao.EmployeDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="HistoriqueModifiDAO"
+		class="fr.ged.data.dao.HistoriqueModifiDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="ActivitesDAO" class="fr.ged.data.dao.ActivitesDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="RoleDAO" class="fr.ged.data.dao.RoleDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="InstanceProcessDAO"
+		class="fr.ged.data.dao.InstanceProcessDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="DocumentDAO" class="fr.ged.data.dao.DocumentDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="PartageDocDAO" class="fr.ged.data.dao.PartageDocDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="ProcessusDAO" class="fr.ged.data.dao.ProcessusDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+	<bean id="TypeDocumentDAO" class="fr.ged.data.dao.TypeDocumentDAO">
+		<property name="sessionFactory">
+			<ref bean="GedConnection" />
+		</property>
+	</bean>
+
+	</beans>

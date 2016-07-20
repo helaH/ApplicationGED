@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.TypeDocument" table="type_document" catalog="ged">
+        <id name="idTypeDocument" type="java.lang.Integer">
+            <column name="ID_TYPE_DOCUMENT" />
+             <generator class="increment" />
+        </id>
+        <property name="nomType" type="java.lang.String">
+            <column name="NOM_TYPE" />
+        </property>
+        <property name="formatDoc" type="java.lang.String">
+            <column name="FORMAT_DOC" />
+        </property>
+        <property name="extensionDoc" type="java.lang.String">
+            <column name="EXTENSION_DOC" />
+        </property>
+        <set name="processuses" inverse="true">
+            <key>
+                <column name="ID_TYPE_DOC" />
+            </key>
+            <one-to-many class="fr.ged.data.Processus" />
+        </set>
+    </class>
+</hibernate-mapping>

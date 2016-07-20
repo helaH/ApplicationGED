@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.Role" table="role" catalog="ged">
+        <id name="idRole" type="java.lang.Integer">
+            <column name="ID_ROLE" />
+              <generator class="increment" />
+        </id>
+        <property name="nomRole" type="java.lang.String">
+            <column name="NOM_ROLE" />
+        </property>
+        <set name="partageDocs" inverse="true">
+            <key>
+                <column name="ID_ROLE" not-null="true" />
+            </key>
+            <one-to-many class="fr.ged.data.PartageDoc" />
+        </set>
+    </class>
+</hibernate-mapping>

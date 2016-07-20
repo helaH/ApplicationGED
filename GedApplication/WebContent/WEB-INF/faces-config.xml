@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+	<application>
+		<view-handler>org.ajax4jsf.application.AjaxViewHandler</view-handler>
+		<resource-bundle>
+			<base-name>MessageResources_fr</base-name>
+			<var>Msg</var>
+		</resource-bundle>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	<converter>
+		<converter-id>genericSecuredConverter</converter-id>
+		<converter-class>fr.ged.bean.GenericSecuredConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>EmployeConverter</converter-id>
+		<converter-class>fr.ged.bean.employe.EmployeConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>RoleConverter</converter-id>
+		<converter-class>fr.ged.bean.role.RoleConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>TypeDocumentConverter</converter-id>
+		<converter-class>fr.ged.bean.typeDocument.TypeDocumentConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>DocumentConverter</converter-id>
+		<converter-class>fr.ged.bean.document.DocumentConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ProcessusConverter</converter-id>
+		<converter-class>fr.ged.bean.processus.ProcessusConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ActiviteConverter</converter-id>
+		<converter-class>fr.ged.bean.activite.ActiviteConverter</converter-class>
+	</converter>
+
+
+
+	<!-- Managed Beans -->
+	<!-- Login -->
+	<managed-bean>
+		<description>Login Bean</description>
+		<managed-bean-name>loginGed</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.login.Login</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<!-- Role -->
+	<managed-bean>
+		<description>Role Bean</description>
+		<managed-bean-name>roles</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.role.Roles</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>roleDAO</property-name>
+			<value>#{RoleDAO}</value>
+		</managed-property>
+	</managed-bean>
+	<!-- TypeDocument -->
+	<managed-bean>
+		<description>TypeDocument Bean</description>
+		<managed-bean-name>typeDocuments</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.typeDocument.TypeDocuments</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>typeDocumentDAO</property-name>
+			<value>#{TypeDocumentDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- User -->
+	<managed-bean>
+		<description>Employe Bean</description>
+		<managed-bean-name>employes</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.employe.Employes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>employeDAO</property-name>
+			<value>#{EmployeDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>roleDAO</property-name>
+			<value>#{RoleDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- Document -->
+	<managed-bean>
+		<description>Document Bean</description>
+		<managed-bean-name>documents</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.document.Documents</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>documentDAO</property-name>
+			<value>#{DocumentDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>typeDocumentDAO</property-name>
+			<value>#{TypeDocumentDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>instanceProcessDAO</property-name>
+			<value>#{InstanceProcessDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>processusDAO</property-name>
+			<value>#{ProcessusDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>activitesDAO</property-name>
+			<value>#{ActivitesDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- Processus -->
+	<managed-bean>
+		<description>Processus Bean</description>
+		<managed-bean-name>processes</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.processus.Processes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>processusDAO</property-name>
+			<value>#{ProcessusDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>typeDocumentDAO</property-name>
+			<value>#{TypeDocumentDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- Activites -->
+	<managed-bean>
+		<description>Activite Bean</description>
+		<managed-bean-name>activites</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.activite.ActivitesBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>activitesDAO</property-name>
+			<value>#{ActivitesDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>roleDAO</property-name>
+			<value>#{RoleDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>processusDAO</property-name>
+			<value>#{ProcessusDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+
+	<!-- InstanceProcess -->
+	<managed-bean>
+		<description>InstanceProcess Bean</description>
+		<managed-bean-name>instanceProcesses</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.instanceProcess.InstanceProcesses</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>instanceProcessDAO</property-name>
+			<value>#{InstanceProcessDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- HistoriqueModif -->
+	<managed-bean>
+		<description>HistoriqueModifi Bean</description>
+		<managed-bean-name>HistoriqueModifis</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.historiqueModif.HistoriqueModifis</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>historiqueModifiDAO</property-name>
+			<value>#{HistoriqueModifDAO}</value>
+		</managed-property>
+
+	</managed-bean>
+
+	<!-- PartageDoc -->
+	<managed-bean>
+		<description>PartageDoc Bean</description>
+		<managed-bean-name>partageDocs</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.partageDoc.PartageDocs</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>partageDocDAO</property-name>
+			<value>#{PartageDocDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>roleDAO</property-name>
+			<value>#{RoleDAO}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>documentDAO</property-name>
+			<value>#{DocumentDAO}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- SuiviDocument -->
+	<managed-bean>
+		<description>suiviDoc  Bean</description>
+		<managed-bean-name>suiviDoc</managed-bean-name>
+		<managed-bean-class>fr.ged.bean.suiviDocument.SuiviDocument</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>documentDAO</property-name>
+			<value>#{DocumentDAO}</value>
+		</managed-property>
+
+	</managed-bean>
+	<!-- Navigation rules -->
+	<!-- MENU -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/pages/secure/acceuil/Acceuil.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ajoutEmploye</from-outcome>
+			<to-view-id>/pages/secure/employe/Employes.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ajoutRole</from-outcome>
+			<to-view-id>/pages/secure/role/Roles.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ajoutTypeDocument</from-outcome>
+			<to-view-id>/pages/secure/typeDocument/TypeDocument.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ajoutProcessus</from-outcome>
+			<to-view-id>/pages/secure/processes/Processus.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ajoutDocument</from-outcome>
+			<to-view-id>/pages/secure/document/Document.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>partageDoc</from-outcome>
+			<to-view-id>/pages/secure/partageDoc/PartageDoc.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>valideEtape</from-outcome>
+			<to-view-id>/pages/secure/instanceProcess/InstanceProcess.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>suiviDoc</from-outcome>
+			<to-view-id>/pages/secure/suiviDocument/SuiviDocument.jsp</to-view-id>
+		</navigation-case>	
+	</navigation-rule>
+	<!-- LOGIN -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{loginGed.log}</from-action>
+			<from-outcome>LoginFailed</from-outcome>
+			<to-view-id>/pages/login/Login.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{loginGed.log}</from-action>
+			<from-outcome>LoginSuccess</from-outcome>
+			<to-view-id>/pages/secure/acceuil/Acceuil.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{loginGed.logOut}</from-action>
+			<from-outcome>LogOutSuccess</from-outcome>
+			<to-view-id>/pages/login/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- typeDocument -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{typeDocuments.addTypeDocument}</from-action>
+			<from-outcome>AddTypeDocumentSuccess</from-outcome>
+			<to-view-id>/pages/secure/typeDocument/TypeDocument.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Roles -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{roles.addRole}</from-action>
+			<from-outcome>AddRoleSuccess</from-outcome>
+			<to-view-id>/pages/secure/role/Roles.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Document -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{documents.addDocument}</from-action>
+			<from-outcome>AddDocumentSuccess</from-outcome>
+			<to-view-id>/pages/secure/document/Document.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Processes -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{processes.addProcessus}</from-action>
+			<from-outcome>AddProcessusSuccess</from-outcome>
+			<to-view-id>/pages/secure/processes/Processus.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- Users -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{employes.addEmploye}</from-action>
+			<from-outcome>AddEmployeSuccess</from-outcome>
+			<to-view-id>/pages/secure/employe/Employes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- Activites -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{activites.addActivite}</from-action>
+			<from-outcome>AddActiviteSuccess</from-outcome>
+			<to-view-id>/pages/secure/activite/Activite.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- InstanceProcess -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{instanceProcesses.addInstanceProcess}</from-action>
+			<from-outcome>AddInstanceProcessSuccess</from-outcome>
+			<to-view-id>/pages/secure/instanceProcess/InstanceProcess.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- HistoriqueModifi -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{historiqueModifi.addHistoriqueModifi}</from-action>
+			<from-outcome>AddHistoriqueModifiSuccess</from-outcome>
+			<to-view-id>/pages/secure/historiqueModif/HistoriqueModif.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- PartageDoc -->
+	<navigation-rule>
+		<navigation-case>
+			<from-action>#{partageDoc.addPartageDoc}</from-action>
+			<from-outcome>AddPartageDocSuccess</from-outcome>
+			<to-view-id>/pages/secure/partageDoc/PartageDoc.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

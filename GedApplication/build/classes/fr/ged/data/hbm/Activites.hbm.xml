@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.Activites" table="activites" catalog="ged">
+        <id name="idActivite" type="java.lang.Integer">
+            <column name="ID_ACTIVITE" />
+             <generator class="increment" />
+        </id>
+        <many-to-one name="activitesByNextActiviteOk" class="fr.ged.data.Activites"  lazy="false" fetch="select">
+            <column name="NEXT_ACTIVITE_OK" />
+        </many-to-one>
+        <many-to-one name="activitesByNextActiviteKo" class="fr.ged.data.Activites" lazy="false" fetch="select">
+            <column name="NEXT_ACTIVITE_KO" />
+        </many-to-one>
+        <property name="nomActivite" type="java.lang.String">
+            <column name="NOM_ACTIVITE" />
+        </property>
+         <many-to-one name="processus" class="fr.ged.data.Processus" lazy="false" >
+                <column name="ID_PROCESS" />
+        </many-to-one>
+         <many-to-one name="role" class="fr.ged.data.Role" lazy="false" >
+                <column name="ID_ROLE" />
+        </many-to-one>
+        <property name="typeActivite" type="java.lang.String">
+            <column name="TYPE_ACTIVITE" />
+        </property>
+        <set name="activitesesForNextActiviteOk" inverse="true" order-by="ID_ACTIVITE asc">
+            <key>
+                <column name="NEXT_ACTIVITE_OK" />
+            </key>
+            <one-to-many class="fr.ged.data.Activites" />
+        </set>
+        <set name="activitesesForNextActiviteKo" inverse="true" order-by="ID_ACTIVITE asc">
+            <key>
+                <column name="NEXT_ACTIVITE_KO" />
+            </key>
+            <one-to-many class="fr.ged.data.Activites" />
+        </set>
+        <set name="instanceProcesses" inverse="true">
+            <key>
+                <column name="ID_ACTIVITE_COUR" />
+            </key>
+            <one-to-many class="fr.ged.data.InstanceProcess" />
+        </set>
+    </class>
+</hibernate-mapping>

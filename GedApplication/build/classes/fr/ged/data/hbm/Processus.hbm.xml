@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.Processus" table="processus" catalog="ged">
+        <id name="idProcess" type="java.lang.Integer">
+            <column name="ID_PROCESS" />
+             <generator class="increment" />
+        </id>
+        <many-to-one name="typeDocument" class="fr.ged.data.TypeDocument" lazy="false" fetch="select">
+            <column name="ID_TYPE_DOC" />
+        </many-to-one>
+        <property name="nomProcess" type="java.lang.String">
+            <column name="NOM_PROCESS" />
+        </property>
+        <set name="instanceProcesses" inverse="true">
+            <key>
+                <column name="ID_PROCESS" not-null="true" />
+            </key>
+            <one-to-many class="fr.ged.data.InstanceProcess" />
+        </set>
+         <set name="activities"  inverse="true" order-by="ID_ACTIVITE asc"  lazy="false">
+            <key>
+                <column name="ID_ACTIVITE" not-null="true" />
+            </key> 
+            <one-to-many class="fr.ged.data.Activites"  />
+        </set>
+    </class>
+</hibernate-mapping>

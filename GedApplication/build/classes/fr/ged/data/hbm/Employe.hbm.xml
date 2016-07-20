@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.Employe" table="employe" catalog="ged">
+        <id name="idEmploye" type="java.lang.Integer">
+            <column name="ID_EMPLOYE" />
+              <generator class="increment" />
+        </id>
+        <property name="nomEmploye" type="java.lang.String">
+            <column name="NOM_EMPLOYE" />
+        </property>
+        <property name="prenomEmploye" type="java.lang.String">
+            <column name="PRENOM_EMPLOYE" />
+        </property>
+        <property name="cinEmploye" type="java.lang.String">
+            <column name="CIN_EMPLOYE" length="8" />
+        </property>
+        <property name="adresseEmploye" type="java.lang.String">
+            <column name="ADRESSE_EMPLOYE" />
+        </property>
+         <property name="login" type="java.lang.String">
+            <column name="LOGIN" />
+        </property>
+         <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <many-to-one name="role" class="fr.ged.data.Role" fetch="select" lazy="false">
+            <column name="ID_ROLE"/>
+        </many-to-one>
+        <set name="instanceProcesses" inverse="true">
+            <key>
+                <column name="ID_EMPLOYE" />
+            </key>
+            <one-to-many class="fr.ged.data.InstanceProcess" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+
+<!-- Definitions for Tiles documentation   -->
+
+<tiles-definitions>
+
+  <!-- =======================================================  -->
+  <!-- Master definition  					-->
+  <!-- =======================================================  -->
+
+  
+    <definition name="site.header" path="/tiles-component/header.jsp"></definition>
+    <definition name="site.menu" path="/tiles-component/Menu.jsp"></definition>
+    <definition name="site.footer" path="/tiles-component/footer.jsp"></definition>
+
+  <!-- =======================================================  -->
+  <!-- Index page definition  					-->
+  <!-- =======================================================  -->
+
+  <!-- =======================================================  -->
+  <!-- Menus definitions  					-->
+  <!-- =======================================================  -->
+
+
+</tiles-definitions>

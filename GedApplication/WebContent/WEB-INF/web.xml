@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>GedApplication</display-name>
+  <!-- The Bootstrap listener to start up and shut down Spring's root WebApplicationContext. 
+	It is registered to Servlet Container -->
+	<listener>
+		<listener-class>
+		org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+		org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	</listener>
+   <!-- Spring Context Configuration' s Path definition -->
+ 	<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>classpath:applicationContext.xml</param-value>
+ </context-param>
+  <context-param>
+    <param-name>javax.faces.CONFIG_FILES</param-name>
+    <param-value>/WEB-INF/faces-config.xml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.SKIN</param-name>
+    <param-value>ruby</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.richfaces.CONTROL_SKINNING</param-name>
+    <param-value>enable</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- Tiles definition debut -->
+  <servlet>
+    <servlet-name>TilesServet</servlet-name>
+    <servlet-class>org.apache.struts.tiles.TilesServlet</servlet-class>
+    <init-param>
+      <param-name>definitions-config</param-name>
+      <param-value>/WEB-INF/tiles-defs.xml</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+    <!-- Tiles definition fin -->
+     <!--tomahawk debut -->    
+  <context-param>
+    <param-name>facelets.LIBRARIES</param-name>
+    <param-value>
+			/WEB-INF/tomahawk.taglib.xml
+		</param-value>
+  </context-param>
+   <!-- tomahawk fin -->
+  <context-param>
+    <description>
+			State saving method: &quot;client&quot; or &quot;server&quot; (= default) See
+			JSF Specification 2.5.2
+		</description>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
+    <description>
+			This parameter tells MyFaces if javascript code should be
+			allowed in the rendered HTML output. If javascript is
+			allowed, command_link anchors will have javascript code that
+			submits the corresponding form. If javascript is not
+			allowed, the state saving info and nested parameters will be
+			added as url parameters. Default: &quot;true&quot; </description>
+    <param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <description>
+			If true, rendered HTML code will be formatted, so that it is
+			&quot;human readable&quot;. i.e. additional line separators and
+			whitespace will be written, that do not influence the HTML
+			code. Default: &quot;true&quot; </description>
+    <param-name>org.apache.myfaces.PRETTY_HTML</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.DETECT_JAVASCRIPT</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <description>
+			If true, a javascript function will be rendered that is able
+			to restore the former vertical scroll on every request.
+			Convenient feature if you have pages with long lists and you
+			do not want the browser page to always jump to the top if
+			you trigger a link or button action that stays on the same
+			page. Default: &quot;false&quot; </description>
+    <param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <filter>
+    <filter-name>Authentication</filter-name>
+    <filter-class>fr.ged.bean.login.Authentication</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Authentication</filter-name>
+    <url-pattern>/pages/secure/*</url-pattern>
+  </filter-mapping>
+<filter>
+    <display-name>RichFaces Filter</display-name>
+    <filter-name>richfaces</filter-name>
+    <filter-class>org.ajax4jsf.Filter</filter-class>
+   		 <init-param>    
+              <param-name>createTempFiles</param-name>    
+              <param-value>false</param-value>    
+          </init-param>    
+          <init-param>    
+              <param-name>maxRequestSize</param-name>    
+              <param-value>10485760</param-value>    
+          </init-param>  
+  </filter>
+  <filter-mapping>
+    <filter-name>richfaces</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+  </filter-mapping>
+</web-app>

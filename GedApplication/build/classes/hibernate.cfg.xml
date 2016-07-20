@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="connection.username">root</property>
+  <property name="connection.url">jdbc:mysql://localhost:3306/ged</property>
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="myeclipse.connection.profile">GedConnetion</property>
+  <property name="connection.password">root</property>
+  <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+  <!-- Enable Hibernate's automatic session context management -->
+  <property name="current_session_context_class">thread</property>
+  <!-- Disable the second-level cache  -->
+  <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+  <property name="cache.use_second_level_cache">false</property>
+  <property name="cache.use_query_cache">false</property>
+  <!-- Echo all executed SQL to stdout -->
+  <property name="show_sql">false</property>
+  <property name="hibernate.connection.autocommit">true</property>
+  <mapping resource="fr/ged/data/hbm/Activites.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/Document.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/Employe.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/HistoriqueModifi.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/InstanceProcess.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/PartageDoc.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/Processus.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/Role.hbm.xml"/>
+  <mapping resource="fr/ged/data/hbm/TypeDocument.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

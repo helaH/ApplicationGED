@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.Document" table="document" catalog="ged">
+        <id name="idDoc" type="java.lang.Integer">
+            <column name="ID_DOC" />
+             <generator class="increment" />
+        </id>
+        <property name="nomDoc" type="java.lang.String">
+            <column name="NOM_DOC" />
+        </property>
+        <property name="pathDoc" type="java.lang.String">
+            <column name="PATH_DOC" />
+        </property>
+        <many-to-one name="typeDocument" class="fr.ged.data.TypeDocument" lazy="false" fetch="select">
+            <column name="ID_TYPE_DOC" />
+        </many-to-one>
+        <property name="doc" type="java.lang.String">
+            <column name="DOC" />
+        </property>
+        <property name="dateCreation" type="java.util.Date">
+            <column name="DATE_CREATION" length="10" />
+        </property>
+        <property name="dateDerniereModif" type="java.util.Date">
+            <column name="DATE_DERNIERE_MODIF" length="10" />
+        </property>
+         <many-to-one name="employe" class="fr.ged.data.Employe" lazy="false" fetch="select">
+            <column name="ID_EMPLOYE_CREAT" />
+        </many-to-one>
+        <property name="versionDoc" type="java.lang.Integer">
+            <column name="VERSION_DOC" />
+        </property>
+        <set name="partageDocs" inverse="true">
+            <key>
+                <column name="ID_DOC" not-null="true" />
+            </key>
+            <one-to-many class="fr.ged.data.PartageDoc" />
+        </set>
+    </class>
+</hibernate-mapping>

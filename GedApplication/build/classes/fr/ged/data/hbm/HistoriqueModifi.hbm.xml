@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="fr.ged.data.HistoriqueModifi" table="historique_modifi" catalog="ged">
+        <composite-id name="id" class="fr.ged.data.HistoriqueModifiId">
+            <key-property name="idDoc" type="java.lang.Integer">
+                <column name="ID_DOC" />
+            </key-property>
+            <key-property name="idEmploye" type="java.lang.Integer">
+                <column name="ID_EMPLOYE" />
+            </key-property>
+            <key-property name="version" type="java.lang.Integer">
+                <column name="VERSION" />
+            </key-property>
+        </composite-id>
+        <property name="dateModif" type="java.util.Date">
+            <column name="DATE_MODIF" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
